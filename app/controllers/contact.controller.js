@@ -52,7 +52,7 @@ exports.findOne = async(req, res, next) => {
 
     if (error) {
         return next(new BadRequestError(500,
-            'Error retrieving contact with id=${req.params.id}'));
+            `Error retrieving contact with id=${req.params.id}`));
     }
 
     if (!document) {
@@ -81,7 +81,7 @@ exports.update = async(req, res, next) => {
 
     if (error) {
         return next(new BadRequestError(500,
-            'Error updating contact with id=${req.params.id}'));
+            `Error updating contact with id=${req.params.id}`));
     }
 
     if (!document) {
