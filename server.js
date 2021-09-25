@@ -47,7 +47,7 @@ const db = require("./app/models");
 
 db.mongoose.connect(config.db.url)
     .then(() => {
-        console.log("Connected to the datebase!");
+        console.log("Connected to the database!");
     })
     .catch((error) => {
         console.log("Cannot connect to the database!", error);
