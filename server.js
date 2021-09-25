@@ -6,10 +6,6 @@ const { BadRequestError } = require("./app/helpers/errors");
 
 const app = express();
 
-var corsOptions = {
-    origin: "http://localhost:8081"
-};
-
 app.use(cors(corsOptions));
 
 app.use(express.json());
@@ -44,3 +40,20 @@ const PORT = config.app.port;
 app.listen(PORT, () => {
     console.log(`Server is running !! ${PORT}`);
 });
+
+app.use(express.urlencoded({ extended: true }));
+
+const db = require("./app/models");
+
+db.mongoose.connect(config.db.url)
+    .then(() => {
+        console.log("Connected to the datebase!");
+    })
+    .catch((error) => {
+        console.log("Cannot connect to the database!", error);
+        process.exit();
+    });
+
+var corsOptions = {
+    origin: "http://localhost:8081"
+};
