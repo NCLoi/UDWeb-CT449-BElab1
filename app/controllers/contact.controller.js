@@ -102,7 +102,7 @@ exports.delete = async(req, res, next) => {
 
     if (error) {
         return next(new BadRequestError(500,
-            'Could not delete contact with id=${req.params.id}'));
+            `Could not delete contact with id=${req.params.id}`));
     }
 
     if (!document) {
@@ -122,7 +122,7 @@ exports.deleteAll = async(req, res, next) => {
             "An error occurred while removing contacts"));
     }
     return res.send({
-        message: '${data.deletedCount} contacts were deleted successfully',
+        message: `${data.deletedCount} contacts were deleted successfully`,
     });
 };
 
