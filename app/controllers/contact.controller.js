@@ -40,7 +40,7 @@ exports.findAll = async(req, res, next) => {
             "An error occurrend while retrieving contacts"));
     }
 
-    return res.send(documents);
+    return res.send(document);
 };
 
 exports.findOne = async(req, res, next) => {
@@ -59,7 +59,7 @@ exports.findOne = async(req, res, next) => {
         return next(new BadRequestError(404, "Contact not found"));
     }
 
-    return res.send(data);
+    return res.send(document);
 };
 
 
